@@ -1073,6 +1073,40 @@
       .fleets p strong { color: var(--band-ink); }
       .fleets .btn { margin-top: 10px; }
 
+      /* ---------- shop registration (after Fleets, before Contact) ---------- */
+      .shop-reg { text-align: center; }
+      .shop-reg-btn {
+        justify-content: center; text-align: center;
+        font-size: 20px; line-height: 1.25; padding: 18px 30px; border-radius: 13px;
+        max-width: 680px;
+      }
+      @media (max-width: 720px) {
+        .shop-reg-btn { display: flex; width: 100%; font-size: 19px; padding: 17px 16px; }
+      }
+      /* ---------- quiet email fallback lines (under both form buttons) ---------- */
+      .form-fallback {
+        margin: 14px auto 0; max-width: 42em;
+        font-size: 15px; color: var(--ink-soft); text-align: center;
+      }
+      .form-fallback a {
+        color: var(--teal); font-weight: 600;
+        text-decoration: underline; text-underline-offset: 2px;
+        overflow-wrap: anywhere;
+      }
+      /* ---------- customer form option (inside the contact card) ---------- */
+      .form-alt {
+        margin-top: 26px; padding-top: 24px;
+        border-top: 1px solid var(--line);
+        text-align: center;
+      }
+      .form-alt-btn {
+        justify-content: center; text-align: center;
+        line-height: 1.25;
+      }
+      @media (max-width: 720px) {
+        .form-alt-btn { display: flex; width: 100%; }
+      }
+
       /* ---------- contact ---------- */
       .contact-card {
         background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
@@ -1526,6 +1560,17 @@
       </div>
     </section>
 
+    <!-- ============ SHOP REGISTRATION ============ -->
+    <section class="shop-reg" aria-label="Shop registration">
+      <div class="wrap">
+        <a class="btn btn-call shop-reg-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeyE067JsCxK_wiLW5y68TFkmKfVUG7L3cWf8W64zP_lj2OrQ/viewform">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l1.7-5h14.6L21 9"/><path d="M4 9v11h16V9"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M9.5 20v-5.5h5V20"/></svg>
+          <span data-i18n="shopRegBtn">Are you a glass or Tint Shop? Register with us</span>
+        </a>
+        <p class="form-fallback" data-i18n="shopRegFallback">Rather not sign in? Email your shop's info to <a href="mailto:qrisvigil@🚗✨.ws">qrisvigil@🚗✨.ws</a></p>
+      </div>
+    </section>
+
     <!-- ============ CONTACT ============ -->
     <section aria-labelledby="contact-h">
       <div class="wrap">
@@ -1547,6 +1592,13 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
               <span data-i18n="saveBtn">Save my contact</span>
             </button>
+          </div>
+          <div class="form-alt">
+            <a class="btn btn-ghost form-alt-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSc9Wt78FVxzWrrYlCV2QpW1a3nLNOUWAHdJAJiUIzuWAxnqfA/viewform">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4.5a3 3 0 0 1 6 0"/><path d="M9 11h6M9 15h4"/></svg>
+              <span data-i18n="custFormBtn">Prefer a form instead? Send your info here</span>
+            </a>
+            <p class="form-fallback" data-i18n="custFormFallback">Rather not sign in? Email the same info + your VIN and damage photos to <a href="mailto:qrisvigil@🚗✨.ws">qrisvigil@🚗✨.ws</a></p>
           </div>
         </div>
       </div>
@@ -1648,12 +1700,16 @@
             fleetP1: "<strong>Tire shops, auto body shops, tow yards, and fleet operators:</strong> when a vehicle on your lot needs glass, you don't need a 1-800 number — you need a person who picks up.",
             fleetP2: "Make me your glass contact. One call or text and any vehicle in your yard gets its glass handled — back on the road, off your lot.",
             fleetBtn: "Set up a fleet account",
+            shopRegBtn: "Are you a glass or Tint Shop? Register with us",
+            shopRegFallback: 'Rather not sign in? Email your shop\'s info to <a href="mailto:qrisvigil@🚗✨.ws">qrisvigil@🚗✨.ws</a>',
             affLine: 'Auto glass shop outside Arizona? Affiliate with us and get leads from this website — call <a href="tel:+16029931234" style="font-weight:600;">(602) 993-1234</a>.',
             contactHead: "Talk to ViGiL directly",
             contactP: "Call or text — if I miss you, I'll get back to you.",
             callBtn2: "Call now",
             textBtn2: "Send a text",
             saveBtn: "Save my contact",
+            custFormBtn: "Prefer a form instead? Send your info here",
+            custFormFallback: 'Rather not sign in? Email the same info + your VIN and damage photos to <a href="mailto:qrisvigil@🚗✨.ws">qrisvigil@🚗✨.ws</a>',
             footerLine: "Wind Shields · Chips & cracks · Side, rear & sunroof glass · Fleets",
             emojiNote: "Yes, the web address really is emojis: 🚗✨.ws",
             stickyCall: "Call",
@@ -1716,12 +1772,16 @@
             fleetP1: "<strong>Llanteras, talleres de hojalatería, corralones y operadores de flotillas:</strong> cuando un vehículo en su lote necesita vidrio, no necesita un número 1-800 — necesita una persona que conteste.",
             fleetP2: "Hágame su contacto de vidrios. Una llamada o un mensaje y el vidrio de cualquier vehículo en su lote queda atendido — de vuelta a la calle, fuera de su lote.",
             fleetBtn: "Abrir una cuenta de flotilla",
+            shopRegBtn: "¿Eres un taller de vidrios o de polarizado? Regístrate con nosotros",
+            shopRegFallback: '¿Prefieres no iniciar sesión? Envía los datos de tu taller a <a href="mailto:qrisvigil@🚗✨.ws">qrisvigil@🚗✨.ws</a>',
             affLine: '¿Un taller de vidrios para autos fuera de Arizona? Afíliese con nosotros y reciba clientes potenciales de este sitio web — llame al <a href="tel:+16029931234" style="font-weight:600;">(602) 993-1234</a>.',
             contactHead: "Hable con ViGiL directamente",
             contactP: "Llame o mande mensaje — si no le contesto, le devuelvo la llamada.",
             callBtn2: "Llamar ahora",
             textBtn2: "Enviar un mensaje",
             saveBtn: "Guardar mi contacto",
+            custFormBtn: "¿Prefieres un formulario? Envía tu información aquí",
+            custFormFallback: '¿Prefieres no iniciar sesión? Envía la misma información + fotos de tu VIN y del daño a <a href="mailto:qrisvigil@🚗✨.ws">qrisvigil@🚗✨.ws</a>',
             footerLine: "Parabrisas · Picaduras y grietas · Vidrios laterales, traseros y techo solar · Flotillas",
             emojiNote: "Sí, la dirección web realmente son emojis: 🚗✨.ws",
             stickyCall: "Llamar",
