@@ -917,11 +917,18 @@
         .closing .hero-cta { display: flex; width: 100%; font-size: 19px; padding: 17px 16px; }
       }
 
-      /* Spanish mode: texting becomes the primary, biggest action; calling steps back */
+      /* Spanish mode: TEXT FIRST — texting is the primary, biggest
+         action, and the customer-facing CALL affordances are removed
+         entirely (no Call button in the contact card, no Call half of
+         the sticky bar): a Spanish-speaking customer's first contact
+         must be a text, never a call that reaches ViGiL without a
+         bilingual agent on the line. The bare number displays stay,
+         but in ES the script points them at the prefilled text
+         instead of the dialer (see .js-phone in applyLang). */
       body.lang-es .cta-row .btn-text { order: -1; background: var(--gold); color: #23160a; font-size: 20px; padding: 19px 30px; }
-      body.lang-es .contact-card .cta-row .btn-call { background: transparent; color: var(--ink); border: 2px solid var(--line); box-shadow: none; }
+      body.lang-es .contact-card .cta-row .btn-call { display: none; }
       body.lang-es .stickybar .s-text { background: var(--gold); color: #23160a; flex: 1.35; order: -1; }
-      body.lang-es .stickybar .s-call { background: transparent; color: var(--ink); border: 2px solid var(--line); flex: 0.85; }
+      body.lang-es .stickybar .s-call { display: none; }
 
       /* ---------- flyer strip ---------- */
       .flyer-strip { background: var(--band-bg); color: var(--band-ink); padding: 28px 0 30px; }
@@ -1553,7 +1560,7 @@
       <div class="wrap">
         <div class="contact-card">
           <h2 class="sec-head" id="contact-h" data-i18n="contactHead">Talk to ViGiL directly</h2>
-          <a class="big-phone" href="tel:+16029931234">(602) 993-1234</a>
+          <a class="big-phone js-phone" href="tel:+16029931234">(602) 993-1234</a>
           <p data-i18n="contactP">Call or text — if I miss you, I'll get back to you.</p>
           <p class="contact-note" data-i18n="textNote">Cash job? All by text — no call needed.</p>
           <div class="cta-row">
@@ -1595,7 +1602,7 @@
     <footer>
       <div class="wrap">
         <p class="fbrand">Car Sparkle DOT Wind Shield</p>
-        <p><a href="tel:+16029931234" style="text-decoration:none; font-weight:600;">(602) 993-1234</a></p>
+        <p><a class="js-phone" href="tel:+16029931234" style="text-decoration:none; font-weight:600;">(602) 993-1234</a></p>
         <p data-i18n="footerLine">Wind Shields · Chips &amp; cracks · Side, rear &amp; sunroof glass · Fleets</p>
         <p class="fsignoff">Qris ViGiL at 🚗✨.ws</p>
         <p class="femoji" data-i18n="emojiNote">Yes, the web address really is emojis: 🚗✨.ws</p>
@@ -1704,11 +1711,11 @@
             slogan1: "Quebrado hoy.",
             slogan2: "Claro mañana.",
             tagline: '<span class="tagline-line">¿Parabrisas roto? ¿Una picadura que se extiende?</span><span class="tagline-line">Autos, camionetas y flotillas ...</span><span class="tagline-line">— ¡RESUELTO! ✅</span>',
-            heroCta: "Envía VIN + foto del daño",
+            heroCta: "Envía foto del VIN + foto del daño + tu aseguradora",
             rebateSign1: "¿ASEGURADO?",
             rebateSign2: "HASTA $250",
             rebateSign3: "¡REEMBOLSO!",
-            heroSmsBody: "Aquí mi VIN y foto del daño — seguro o efectivo:",
+            heroSmsBody: "Aquí va la foto de mi VIN, la foto del daño y mi aseguradora: [nombre de la compañía]",
             comeToYou: "¡Vamos a usted!",
             badge1: "Bajo costo",
             badge2: "Rápido y preciso",
@@ -1718,7 +1725,7 @@
             textBtn: "Enviar mensaje a ViGiL",
             phoneLabel: "Llame o mande mensaje:",
             bilingual: "Si hablas español, mándanos un texto.",
-            textNote: "Si hablas español, mándanos un texto. ¿Pago en efectivo? Todo por texto, sin llamada.",
+            textNote: "Si hablas español, mándanos un texto primero. ¿Pago en efectivo? Todo por texto, sin llamada.",
             svcHead: "Servicios",
             fastestLine: "Enviar un texto es la forma más rápida.",
             svc1T: "Reemplazo de Parabrisas",
@@ -1749,7 +1756,7 @@
             insTag: "Seguro",
             ins1: "Envía tu VIN + foto del daño + el nombre de tu aseguradora.",
             ins2: "Hago una llamada rápida a tu aseguradora.",
-            ins3: "En cuanto los tengo en línea, te llamo.",
+            ins3: "En cuanto los tengo en línea, te devuelvo la llamada con un agente bilingüe (español e inglés) en la línea.",
             ins4: "Te programo para el mejor reembolso disponible.",
             fleetHead: "🚗✨ Para flotillas y talleres",
             fleetP1: "<strong>Llanteras, talleres de hojalatería, corralones y operadores de flotillas:</strong> cuando un vehículo en su lote necesita vidrio, no necesita un número 1-800 — necesita una persona que conteste.",
@@ -1757,9 +1764,9 @@
             fleetBtn: "Abrir una cuenta de flotilla",
             affLine: '¿Un taller de vidrios para autos fuera de Arizona? Afíliese con nosotros y reciba clientes potenciales de este sitio web — llame al <a href="tel:+16029931234" style="font-weight:600;">(602) 993-1234</a>.',
             contactHead: "Hable con ViGiL directamente",
-            contactP: "Llame o mande mensaje — si no le contesto, le devuelvo la llamada.",
+            contactP: "Mándanos un texto primero: foto de tu VIN, foto del daño y tu aseguradora. Después de tu texto, te devolvemos la llamada con un agente bilingüe (español e inglés) en la línea.",
             callBtn2: "Llamar ahora",
-            textBtn2: "Enviar un mensaje",
+            textBtn2: "Enviar el texto primero",
             saveBtn: "Guardar mi contacto",
             formBtn: "¿Prefieres un formulario? Envía tu info aquí",
             formMail: 'O envía la misma información + tu VIN y fotos del daño por correo a <a href="mailto:qrisvigil@🚗✨.ws">qrisvigil@🚗✨.ws</a>',
@@ -1772,7 +1779,7 @@
             emojiType: "Escribe 🚗✨.ws así: car → 🚗, sparkle → ✨, luego .ws",
             stickyCall: "Llamar",
             stickyText: "Mensaje",
-            smsBody: "Hola ViGiL, necesito trabajo de vidrio para mi auto. Te mando una foto del VIN. Es por: [seguro — ¿cuál compañía? / pago en efectivo]."
+            smsBody: "Hola ViGiL, necesito trabajo de vidrios para mi auto. Te mando: 1) foto de mi VIN, 2) foto del daño, 3) mi aseguradora: [nombre de la compañía]."
           }
         };
 
@@ -1794,6 +1801,17 @@
           var heroSmsHref = "sms:" + PHONE_LINK + "?&body=" + encodeURIComponent(dict.heroSmsBody);
           var heroSmsLinks = document.querySelectorAll(".js-sms-hero");
           for (var k = 0; k < heroSmsLinks.length; k++) heroSmsLinks[k].setAttribute("href", heroSmsHref);
+          /* TEXT FIRST in Spanish mode: the bare-number links (the big
+             number in the contact card and the number in the footer)
+             open the prefilled TEXT instead of the dialer, so a
+             Spanish-speaking customer's first tap can only start a
+             text. English mode points them back at the dialer. The
+             shop-facing affiliate line keeps its own call link in
+             both languages — it is not a .js-phone link. */
+          var phoneLinks = document.querySelectorAll(".js-phone");
+          for (var m = 0; m < phoneLinks.length; m++) {
+            phoneLinks[m].setAttribute("href", lang === "es" ? smsHref : "tel:" + PHONE_LINK);
+          }
           var enBtn = document.getElementById("lang-en");
           var esBtn = document.getElementById("lang-es");
           if (enBtn) enBtn.setAttribute("aria-pressed", lang === "en" ? "true" : "false");
