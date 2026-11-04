@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Car Sparkle DOT Wind Shield — Shop Registration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg:#edf1f3; --ink:#0d1b26; --teal:#0b7285; --gold:#f5a623; --gold2:#e8930c; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:"Barlow",system-ui,sans-serif; }
+  .topbar { background:var(--ink); color:#eef5f7; padding:12px 18px; display:flex; align-items:center; justify-content:space-between; gap:10px 14px; flex-wrap:wrap; }
+  .topbar .brand { font-family:"Barlow Condensed",sans-serif; font-weight:700; letter-spacing:.04em; font-size:20px; }
+  .topbar a.back { color:var(--gold); font-weight:600; text-decoration:none; font-size:15px; white-space:nowrap; }
+  .langbar { display:flex; gap:4px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.35); border-radius:999px; padding:4px; }
+  .langbar button { appearance:none; border:0; cursor:pointer; font:600 15px/1 "Barlow",sans-serif; letter-spacing:.04em; padding:10px 16px; border-radius:999px; background:transparent; color:#fff; min-height:44px; }
+  .langbar button[aria-pressed="true"] { background:#fff; color:var(--ink); }
+  .wrap { max-width:680px; margin:0 auto; padding:26px 18px 60px; }
+  h1 { font-family:"Barlow Condensed",sans-serif; font-size:34px; line-height:1.05; margin:6px 0 8px; }
+  .intro { font-size:16.5px; line-height:1.45; margin:0 0 26px; }
+  .intro a { color:var(--teal); font-weight:600; }
+  form { display:block; }
+  .q { margin:0 0 24px; }
+  .q label.title, .q .title { display:block; font-weight:700; font-size:17.5px; margin:0 0 9px; }
+  .q .req { color:#c22525; }
+  .q input[type="text"], .q input[type="tel"], .q input[type="email"], .q textarea {
+    width:100%; font:400 16.5px "Barlow",sans-serif; color:var(--ink);
+    background:#fff; border:1.5px solid #b9c6cc; border-radius:10px; padding:12px 14px; }
+  .q textarea { min-height:110px; resize:vertical; }
+  .opts { display:grid; gap:9px; }
+  .opt { display:flex; align-items:flex-start; gap:11px; background:#fff; border:1.5px solid #b9c6cc; border-radius:10px; padding:12px 14px; cursor:pointer; font-size:16.5px; }
+  .opt input { width:20px; height:20px; margin:1px 0 0; accent-color:var(--teal); flex:none; }
+  .opt:has(input:checked) { border-color:var(--teal); background:#eef7f9; }
+  .submit { appearance:none; border:2px solid #23160a; cursor:pointer; width:100%;
+    background:linear-gradient(180deg,#ffc53d,var(--gold)); color:#23160a;
+    font:800 19px "Barlow",sans-serif; border-radius:12px; padding:16px; margin-top:6px;
+    box-shadow:0 6px 18px rgba(0,0,0,.25); }
+  .submit:active { transform:scale(.985); }
+  .note { font-size:14.5px; color:#44565f; margin-top:14px; line-height:1.45; }
+  .done { display:none; background:#e6f4ea; border:1.5px solid #2e7d32; color:#1b4d1e; border-radius:12px; padding:18px; font-size:16.5px; line-height:1.5; }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <span class="brand">🚗✨ Car Sparkle DOT Wind Shield</span>
+  <span style="display:flex; gap:14px; align-items:center;">
+    <a class="back" href="index.html" data-i18n="backLink">← Back to the site</a>
+    <span class="langbar" role="group" aria-label="Language / Idioma">
+      <button type="button" id="lang-en" aria-pressed="true">EN</button>
+      <button type="button" id="lang-es" aria-pressed="false">ES</button>
+    </span>
+  </span>
+</header>
+<main class="wrap">
+  <h1 data-i18n="pageTitle">🚗 ✨ Car Sparkle — Shop Registration</h1>
+  <p class="intro" data-i18n="pageIntro">Register your shop with Car Sparkle DOT Wind Shield to receive leads. Tell us what you do, where you serve, and what a good lead looks like for you. Rather email instead? Send the same info to qrisvigil@🚗✨.ws.</p>
+  <form id="shop-form">
+    <div class="q" data-q="shopName"><span class="title"><span class="title-text">Shop name</span> <span class="req">*</span></span><input type="text" required></div>
+    <div class="q" data-q="contactName"><span class="title"><span class="title-text">Contact name</span> <span class="req">*</span></span><input type="text" required></div>
+    <div class="q" data-q="phone"><span class="title"><span class="title-text">Phone number</span> <span class="req">*</span></span><input type="tel" required></div>
+    <div class="q" data-q="email"><span class="title"><span class="title-text">Email</span> <span class="req">*</span></span><input type="email" required></div>
+    <div class="q" data-q="address"><span class="title"><span class="title-text">Shop address</span> <span class="req">*</span></span><input type="text" required></div>
+    <div class="q" data-q="shopDoes"><span class="title"><span class="title-text">🛠️ What does your shop do?</span> <span class="req">*</span></span><div class="opts"><label class="opt" data-opt="0"><input type="checkbox" value="🪟 Glass"><span class="opt-text">🪟 Glass</span></label><label class="opt" data-opt="1"><input type="checkbox" value="🕶️ Tint"><span class="opt-text">🕶️ Tint</span></label><label class="opt" data-opt="2"><input type="checkbox" value="🧼 Car wash"><span class="opt-text">🧼 Car wash</span></label><label class="opt" data-opt="3"><input type="checkbox" value="🔧 Other"><span class="opt-text">🔧 Other</span></label></div></div>
+    <div class="q" data-q="specialization" id="q-specialization" style="display:none;"><span class="title"><span class="title-text">If other — what's your specialization?</span></span><input type="text"></div>
+    <div class="q" data-q="serveArea"><span class="title"><span class="title-text">Cities / ZIP codes you serve</span> <span class="req">*</span></span><input type="text" required></div>
+    <div class="q" data-q="jobs"><span class="title"><span class="title-text">Jobs you take</span> <span class="req">*</span></span><div class="opts"><label class="opt" data-opt="0"><input type="checkbox" value="Wind Shield replacement"><span class="opt-text">Wind Shield replacement</span></label><label class="opt" data-opt="1"><input type="checkbox" value="Chip repair"><span class="opt-text">Chip repair</span></label><label class="opt" data-opt="2"><input type="checkbox" value="Other glass"><span class="opt-text">Other glass</span></label><label class="opt" data-opt="3"><input type="checkbox" value="Fleet work"><span class="opt-text">Fleet work</span></label></div></div>
+    <div class="q" data-q="qualifiedLead"><span class="title"><span class="title-text">In your own words — what is a qualified lead for your shop, and what is a lead like that worth to you?</span></span><textarea></textarea></div>
+    <div class="q" data-q="rebate"><span class="title"><span class="title-text">Rebate you offer customers (if any)</span> <span class="req">*</span></span><input type="text" required></div>
+    <div class="q" data-q="delivery"><span class="title"><span class="title-text">How should leads be delivered to you?</span> <span class="req">*</span></span><div class="opts"><label class="opt" data-opt="0"><input type="checkbox" value="Text"><span class="opt-text">Text</span></label><label class="opt" data-opt="1"><input type="checkbox" value="Call"><span class="opt-text">Call</span></label><label class="opt" data-opt="2"><input type="checkbox" value="Email"><span class="opt-text">Email</span></label></div></div>
+    <div class="q" data-q="appointment"><span class="title"><span class="title-text">When a lead is ready to book, how should the appointment be handled?</span></span><div class="opts"><label class="opt" data-opt="0"><input type="checkbox" value="Set the appointment for us"><span class="opt-text">Set the appointment for us</span></label><label class="opt" data-opt="1"><input type="checkbox" value="Connect us with the customer and we'll book it"><span class="opt-text">Connect us with the customer and we'll book it</span></label></div></div>
+    <button class="submit" type="submit" data-i18n="submitBtn">Submit →</button>
+    <p class="note" data-i18n="submitNote">Submitting opens your email app with your answers addressed to Car Sparkle — just press send there.</p>
+  </form>
+  <div class="done" id="done-box" data-i18n="doneMsg">Your email app should have opened with your registration addressed to Car Sparkle — press send there and you're registered. Didn't open? Email the same answers to qrisvigil@🚗✨.ws.</div>
+</main>
+<script>
+  var STR = {
+    en: { backLink: "← Back to the site", pageTitle: "🚗 ✨ Car Sparkle — Shop Registration",
+      pageIntro: "Register your shop with Car Sparkle DOT Wind Shield to receive leads. Tell us what you do, where you serve, and what a good lead looks like for you. Rather email instead? Send the same info to qrisvigil@🚗✨.ws.",
+      submitBtn: "Submit →",
+      submitNote: "Submitting opens your email app with your answers addressed to Car Sparkle — just press send there.",
+      doneMsg: "Your email app should have opened with your registration addressed to Car Sparkle — press send there and you're registered. Didn't open? Email the same answers to qrisvigil@🚗✨.ws." },
+    es: { backLink: "← Volver al sitio", pageTitle: "🚗 ✨ Car Sparkle — Registro de Taller",
+      pageIntro: "Registra tu taller con Car Sparkle DOT Wind Shield para recibir leads. Cuéntanos qué haces, dónde das servicio y cómo es un buen lead para ti. ¿Prefieres por correo? Envía la misma información a qrisvigil@🚗✨.ws.",
+      submitBtn: "Enviar →",
+      submitNote: "Al enviar se abrirá tu aplicación de correo con tus respuestas dirigidas a Car Sparkle — solo pulsa enviar allí.",
+      doneMsg: "Tu aplicación de correo debería haberse abierto con tu registro dirigido a Car Sparkle — pulsa enviar allí y quedarás registrado. ¿No se abrió? Envía las mismas respuestas por correo a qrisvigil@🚗✨.ws." }
+  };
+  var FIELDS_I18N = {
+  "shopName": {
+    "en": {
+      "title": "Shop name"
+    },
+    "es": {
+      "title": "Nombre del taller"
+    }
+  },
+  "contactName": {
+    "en": {
+      "title": "Contact name"
+    },
+    "es": {
+      "title": "Nombre de contacto"
+    }
+  },
+  "phone": {
+    "en": {
+      "title": "Phone number"
+    },
+    "es": {
+      "title": "Número de teléfono"
+    }
+  },
+  "email": {
+    "en": {
+      "title": "Email"
+    },
+    "es": {
+      "title": "Correo electrónico"
+    }
+  },
+  "address": {
+    "en": {
+      "title": "Shop address"
+    },
+    "es": {
+      "title": "Dirección del taller"
+    }
+  },
+  "shopDoes": {
+    "en": {
+      "title": "🛠️ What does your shop do?",
+      "options": [
+        "🪟 Glass",
+        "🕶️ Tint",
+        "🧼 Car wash",
+        "🔧 Other"
+      ]
+    },
+    "es": {
+      "title": "🛠️ ¿Qué hace tu taller?",
+      "options": [
+        "🪟 Vidrios",
+        "🕶️ Polarizado",
+        "🧼 Lavado de autos",
+        "🔧 Otro"
+      ]
+    }
+  },
+  "specialization": {
+    "en": {
+      "title": "If other — what's your specialization?"
+    },
+    "es": {
+      "title": "Si es otro — ¿cuál es tu especialidad?"
+    }
+  },
+  "serveArea": {
+    "en": {
+      "title": "Cities / ZIP codes you serve"
+    },
+    "es": {
+      "title": "Ciudades / códigos ZIP que atiendes"
+    }
+  },
+  "jobs": {
+    "en": {
+      "title": "Jobs you take",
+      "options": [
+        "Wind Shield replacement",
+        "Chip repair",
+        "Other glass",
+        "Fleet work"
+      ]
+    },
+    "es": {
+      "title": "Trabajos que aceptas",
+      "options": [
+        "Reemplazo de Wind Shield",
+        "Reparación de chip",
+        "Otros vidrios",
+        "Trabajo de flotillas"
+      ]
+    }
+  },
+  "qualifiedLead": {
+    "en": {
+      "title": "In your own words — what is a qualified lead for your shop, and what is a lead like that worth to you?"
+    },
+    "es": {
+      "title": "En tus propias palabras — ¿qué es un lead calificado para tu taller, y cuánto vale para ti un lead así?"
+    }
+  },
+  "rebate": {
+    "en": {
+      "title": "Rebate you offer customers (if any)"
+    },
+    "es": {
+      "title": "Reembolso que ofreces a los clientes (si aplica)"
+    }
+  },
+  "delivery": {
+    "en": {
+      "title": "How should leads be delivered to you?",
+      "options": [
+        "Text",
+        "Call",
+        "Email"
+      ]
+    },
+    "es": {
+      "title": "¿Cómo quieres que te entreguemos los leads?",
+      "options": [
+        "Texto",
+        "Llamada",
+        "Correo"
+      ]
+    }
+  },
+  "appointment": {
+    "en": {
+      "title": "When a lead is ready to book, how should the appointment be handled?",
+      "options": [
+        "Set the appointment for us",
+        "Connect us with the customer and we'll book it"
+      ]
+    },
+    "es": {
+      "title": "Cuando un lead está listo para agendar, ¿cómo se debe manejar la cita?",
+      "options": [
+        "Agenden la cita por nosotros",
+        "Conéctennos con el cliente y nosotros la agendamos"
+      ]
+    }
+  }
+};
+  function applyLang(lang) {
+    var dict = STR[lang];
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var k = el.getAttribute("data-i18n"); if (dict[k] != null) el.textContent = dict[k];
+    });
+    document.querySelectorAll("[data-q]").forEach(function (el) {
+      var q = FIELDS_I18N[el.getAttribute("data-q")]; if (!q) return;
+      var t = el.querySelector(".title-text"); if (t) t.textContent = q[lang].title;
+      el.querySelectorAll("[data-opt]").forEach(function (o) {
+        var oi = +o.getAttribute("data-opt"); var lab = o.querySelector(".opt-text");
+        if (lab && q[lang].options && q[lang].options[oi] != null) lab.textContent = q[lang].options[oi];
+      });
+      var inp = el.querySelector("input, textarea");
+      if (inp && q[lang].placeholder) inp.placeholder = q[lang].placeholder;
+    });
+    document.getElementById("lang-en").setAttribute("aria-pressed", lang === "en" ? "true" : "false");
+    document.getElementById("lang-es").setAttribute("aria-pressed", lang === "es" ? "true" : "false");
+    document.body.classList.toggle("lang-es", lang === "es");
+    document.documentElement.lang = lang;
+  }
+  document.getElementById("lang-en").addEventListener("click", function () { applyLang("en"); });
+  document.getElementById("lang-es").addEventListener("click", function () { applyLang("es"); });
+  var otherBox = document.querySelector('[data-q="shopDoes"] input[value="🔧 Other"]');
+  var specQ = document.getElementById("q-specialization");
+  if (otherBox && specQ) otherBox.addEventListener("change", function () {
+    specQ.style.display = otherBox.checked ? "block" : "none";
+  });
+  document.getElementById("shop-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var es = document.body.classList.contains("lang-es");
+    var lines = [], shopName = "";
+    document.querySelectorAll("[data-q]").forEach(function (el) {
+      var q = FIELDS_I18N[el.getAttribute("data-q")]; if (!q) return;
+      var title = q.en.title, val = "";
+      var checks = el.querySelectorAll("input[type=checkbox]:checked");
+      if (checks.length) { val = [...checks].map(function (c) { return c.value; }).join(", "); }
+      else { var inp = el.querySelector("input, textarea"); if (inp) val = inp.value.trim(); }
+      if (el.getAttribute("data-q") === "shopName") shopName = val;
+      lines.push(title + "\n" + (val || "—"));
+    });
+    var subject = (es ? "Registro de taller — " : "Shop registration — ") + (shopName || "Car Sparkle");
+    var href = "mailto:qrisvigil@xn--0ciw139m.ws?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n\n"));
+    window.location.href = href;
+    document.getElementById("done-box").style.display = "block";
+    document.getElementById("done-box").scrollIntoView({ block: "center" });
+  });
+</script>
+</body>
+</html>
