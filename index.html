@@ -1333,20 +1333,6 @@
     .cs-tint-word { font-size:12.5px; letter-spacing:2px; }
   }
   a.cs-reg-shop { position:relative; background:#0d1b26; color:#eef5f7; }
-  .cs-count-rest { position:absolute; left:50%; top:50%; z-index:2;
-    transform:translate(-50%,-50%);
-    font-size:30px; font-weight:800; color:#f5a623; line-height:1;
-    pointer-events:none; text-shadow:0 1px 6px rgba(0,0,0,.65); }
-  .cs-count-float { position:absolute; left:50%; top:50%; z-index:2;
-    font-size:30px; font-weight:800; color:#f5a623; line-height:1;
-    pointer-events:none; text-shadow:0 1px 6px rgba(0,0,0,.65);
-    animation:csSway 5.5s ease-in-out infinite alternate; }
-  @keyframes csSway {
-    0%   { transform:translate(calc(-50% + 10px),-50%) rotate(-3deg); }
-    50%  { transform:translate(-50%,-62%) rotate(0deg); }
-    100% { transform:translate(calc(-50% - 10px),-50%) rotate(3deg); } }
-  @media (prefers-reduced-motion: reduce) {
-    .cs-count-float { animation:none; transform:translate(-50%,-50%); } }
   .badge-sign-1 { animation-delay:2.75s; }
   .badge-sign-2 { animation-delay:5.75s; }
   .badge-sign-3 { animation-delay:8.75s; }
@@ -1394,38 +1380,11 @@
 
   .hero-inner a.rebate-badge { cursor:pointer; text-decoration:none; -webkit-tap-highlight-color:transparent; }
   .hero-inner a.rebate-badge:active .rebate-sign { transform:scale(.965); }
-  .cs-sign-digit { font-size:27px; line-height:1; margin-right:9px; }
-  #csFreeCount { opacity:0; animation:none; transition:opacity .3s ease; }
-  #csFreeCount.cs-top-live { opacity:1; animation:cs-top-dance 1.15s ease-in-out 2; }
-  @keyframes cs-top-dance {
-    0%,100% { transform:translate(calc(-50% + 7px),-50%) rotate(-3deg); }
-    50% { transform:translate(calc(-50% - 7px),-50%) rotate(3deg); } }
-  #csTraveler { position:fixed; z-index:62; font-size:30px; font-weight:800; color:#f5a623;
-    line-height:1; pointer-events:none; text-shadow:0 1px 6px rgba(0,0,0,.65);
-    transform:translate(-50%,0); opacity:0; }
-  #csTraveler.cs-falling { transition:top .95s cubic-bezier(.55,.06,.85,.55), opacity .35s ease-in .6s; }
-  #csFreeCountBottom { opacity:0; transition:opacity .45s ease; }
-  #csFreeCountBottom.cs-landed { opacity:1; }
-  @media (prefers-reduced-motion: reduce) {
-    #csFreeCount, #csTraveler { display:none; }
-    #csFreeCountBottom { opacity:1; } }
   .hero-inner .rebate-badge { position:relative; top:auto; right:auto; left:auto;
     margin:8px auto 2px; justify-content:center; }
-  .cs-lead-sign { position:fixed; top:0; left:0; right:0; height:42px; z-index:61;
-    display:flex; align-items:center; justify-content:center;
-    background:#f5a623; color:#23160a; font-weight:800; font-size:16px;
-    letter-spacing:.2px; white-space:nowrap; pointer-events:none;
-    animation:csSign 4s ease forwards; }
-  @keyframes csSign {
-    0%, 85% { opacity:1; visibility:visible; }
-    100% { opacity:0; visibility:hidden; } }
   .hero .langbar { top:50px; animation:cs-pill-enter .67s ease-out .714s backwards; }
   @keyframes cs-pill-enter { 0% { transform:translateX(150px); } 100% { transform:translateX(0); } }
   section h2, section h3 { scroll-margin-top:56px; }
-  @media (max-width:640px) {
-    .cs-count-float { font-size:27px; }
-    .cs-lead-sign { font-size:13.5px; }
-  }
   .cs-shop-cta { margin-top:12px; border:2px solid #23160a; }
 </style>
   <style>
@@ -1437,18 +1396,14 @@ body.cs-scrolling .cs-emo{animation:csWig .45s ease-in-out infinite alternate}
 </style>
 </head>
   <body>
-<!-- Intro sign: covers the nav, then disappears (ViGiL 2026-11-03) -->
-<div class="cs-lead-sign" id="csLeadSign"><span class="cs-count-val cs-sign-digit" aria-hidden="true">3</span><span id="csLeadWords">Three free leads if you register today</span></div>
-<span class="cs-count-val" id="csTraveler" aria-hidden="true">3</span>
 <!-- Top navigation (ViGiL 2026-11-03) -->
 <nav class="cs-nav" aria-label="Site">
-  <a href="emojistry.html" class="cs-nav-register"><span data-i18n="navRegister">🗝️📜⛩️ Emojistry</span><span class="cs-count-float cs-count-val" id="csFreeCount" aria-hidden="true">3</span></a>
+  <a href="emojistry.html" class="cs-nav-register"><span data-i18n="navRegister">🗝️📜⛩️ Emojistry</span></a>
   <a href="#how-h" data-i18n="navHow">🔎 How It Works</a>
   <a href="directory.html" data-i18n="navDir">📋 Directory</a>
   <a href="#learn-more" data-i18n="navSafety">More about WS replacement</a>
   <a href="#about-h" data-i18n="navAbout">About</a>
 </nav>
-<!-- Free-lead counter banner: time-based from first visit (3 -> 2 at 24h -> 1 at 48h, never 0) -->
 
     <!-- Locked background: a matched pair of generated PHOTOGRAPHS of one Wind Shield close-up stays fixed while everything scrolls over it. Bottom layer is IMAGE B (the same Wind Shield totally clear, sunny sky reflections); the top layer is IMAGE A (storm-grey light, a crack IN the glass shaped like the letters WS, plus a small round chip left of the W as the dot). On the 12s loop the top layer is revealed through animated masks: outside the S the soft boundary tracks the car's x-position (heal-front keyframes), so the glass heals progressively right-to-left in the car's wake — never a uniform fade; inside the S the main layer is clipped out of the S strip and two extra copies of Image A, split across the S's middle, heal through angular clock-hand sweeps around the S's center (top counterclockwise, bottom clockwise — the directions the measured route geometry gives), keyed to the same drive-route stops, with a feathered seam and a small pivot disc clearing the waist crossing. The scene rests fully clear, and fades back in at 11.5–12s while the car is absent. Pure CSS, same 12s duration as the car's drive: no JavaScript is involved, so the full show runs even with scripting disabled. No wipe, no glowing line. -->
     <div class="bg-fixed" aria-hidden="true">
@@ -1495,8 +1450,8 @@ body.cs-scrolling .cs-emo{animation:csWig .45s ease-in-out infinite alternate}
           </g>
           <g class="drive-car-g" id="drive-car" transform="translate(978 132)">
             <g class="car-scale"><g class="car-bob"><g class="car-fix">
-              <text class="car-emoji" x="0" y="0" text-anchor="middle" dominant-baseline="central">🚗</text>
-              <text class="spark sp-main" x="17" y="-15" text-anchor="middle" dominant-baseline="central">✨</text>
+              <g class="car-emoji" aria-hidden="true"><path d="M-15 -2 L-11 -14 Q-10 -17 -6 -17 L6 -17 Q10 -17 12 -13 L16 -2 Z" fill="#c62f24"/><rect x="-10" y="-15" width="8" height="9" rx="1.5" fill="#bfe3ff"/><rect x="-0.5" y="-15" width="9" height="9" rx="1.5" fill="#bfe3ff"/><path d="M-23 1 Q-23 -3 -18 -3 L17 -3 Q22 -3 23 2 L23 7 Q23 10 19 10 L-19 10 Q-23 10 -23 6 Z" fill="#e0342b"/><circle cx="-13" cy="10" r="5.2" fill="#1d1d1f"/><circle cx="-13" cy="10" r="2.2" fill="#d8d8d8"/><circle cx="13" cy="10" r="5.2" fill="#1d1d1f"/><circle cx="13" cy="10" r="2.2" fill="#d8d8d8"/><rect x="18.5" y="1.5" width="4" height="3" rx="1" fill="#ffd94d"/></g>
+              <path class="spark sp-main" d="M17 -27 C18.6 -20.4 20.4 -17.6 27 -15 C20.4 -12.4 18.6 -9.6 17 -3 C15.4 -9.6 13.6 -12.4 7 -15 C13.6 -17.6 15.4 -20.4 17 -27 Z" fill="#ffd94d" aria-hidden="true"/>
               <text class="spark sp-1" x="-5" y="-25" text-anchor="middle" dominant-baseline="central">✦</text>
               <text class="spark sp-2" x="27" y="1" text-anchor="middle" dominant-baseline="central">✧</text>
             </g></g></g>
@@ -1756,7 +1711,7 @@ Let's get your quotes!</div>
         <h2 class="sec-head" id="shop-h" data-i18n="shopHead">For Glass &amp; Tint Shops 🏪</h2>
         <p class="sec-sub" data-i18n="shopP">Register your shop to receive leads from Car Sparkle DOT Wind Shield.</p>
         <a class="btn btn-call cs-reg-shop" href="shop-questions.html" target="_blank" rel="noopener">
-          <span data-i18n="regShopBtn">🏪 Register Shop</span><span class="cs-count-rest cs-count-val" id="csFreeCountBottom" aria-hidden="true">3</span>
+          <span data-i18n="regShopBtn">🏪 Register Shop</span>
         </a>
         <a class="btn btn-text" href="https://tally.so/r/ArzRp0" target="_blank" rel="noopener">
           <span data-i18n="regFleetBtn">🚛 Register Fleet</span>
@@ -1900,7 +1855,6 @@ Let's get your quotes!</div>
             shopP: "Register your shop to receive leads from Car Sparkle DOT Wind Shield.",
             shopBtn: "🏪 Are you a glass or Tint Shop? Register with us",
             bannerLead: "Glass & tint shops:",
-            bannerFree: "free leads today — first come, first served.",
             bannerBtn: "Register your shop →",
             navAbout: "👋 About",
             navSafety: "🛡️ More about WS replacement",
@@ -2016,7 +1970,6 @@ Let's get your quotes!</div>
             shopP: "Registra tu taller para recibir clientes potenciales de Car Sparkle DOT Wind Shield.",
             shopBtn: "🏪 ¿Tienes un taller de vidrios o polarizado? Regístrate con nosotros",
             bannerLead: "Talleres de vidrios y polarizado:",
-            bannerFree: "leads gratis hoy — al primero que llegue.",
             bannerBtn: "Registra tu taller →",
             flashCap: "TODO VIDRIO DE AUTO",
             capW1: "TODO",
@@ -2204,8 +2157,10 @@ Let's get your quotes!</div>
     </script>
   
 <script>
-/* Free-lead counter: first-visit timestamp in localStorage; count rides
-   into every shop-registration link as URL parameters. */
+/* Free-lead mechanic (invisible since 2026-11-13: the sign and counter
+   came off the site per ViGiL's 2026-11-07 ruling; the mechanic still
+   runs) — first-visit timestamp in localStorage; the time-based count
+   rides into every shop-registration link as URL parameters. */
 (function () {
   var KEY = "cs_first_visit";
   var first = null;
@@ -2218,59 +2173,11 @@ Let's get your quotes!</div>
   } catch (e) { first = Date.now(); }
   var hours = (Date.now() - first) / 3600000;
   var count = hours < 24 ? 3 : hours < 48 ? 2 : 1;
-  var els = document.querySelectorAll(".cs-count-val");
-  for (var c = 0; c < els.length; c++) els[c].textContent = String(count);
-  var SIGN_WORDS = {
-    en: { 3: "Three free leads if you register today",
-          2: "Two free leads if you register today",
-          1: "One free lead if you register today" },
-    es: { 3: "Tres leads gratis si te registras hoy",
-          2: "Dos leads gratis si te registras hoy",
-          1: "Un lead gratis si te registras hoy" }
-  };
-  function setSign() {
-    var sign = document.getElementById("csLeadSign");
-    if (!sign) return;
-    var es = document.body.classList.contains("lang-es");
-    var w = document.getElementById("csLeadWords");
-    if (w) w.textContent = (es ? SIGN_WORDS.es : SIGN_WORDS.en)[count];
-    else sign.textContent = (es ? SIGN_WORDS.es : SIGN_WORDS.en)[count];
-  }
-  setSign();
-  ["lang-en", "lang-es"].forEach(function (id) {
-    var b = document.getElementById(id);
-    if (b) b.addEventListener("click", function () { setTimeout(setSign, 50); });
-  });
   var links = document.querySelectorAll('a[href^="shop-questions.html"]');
   for (var i = 0; i < links.length; i++) {
     var sep = links[i].href.indexOf("?") === -1 ? "?" : "&";
     links[i].href += sep + "free_leads=" + count +
       "&first_visit=" + new Date(first).toISOString();
-  }
-  /* The journey (ViGiL 2026-11-04): the number appears WITH the sign,
-     dances briefly over Register, then DROPS and lands over Register
-     Shop, where it lives for the rest of the visit. No return trips. */
-  var navCount = document.getElementById("csFreeCount");
-  var traveler = document.getElementById("csTraveler");
-  var restEl = document.getElementById("csFreeCountBottom");
-  var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  function land() { if (restEl) restEl.classList.add("cs-landed"); }
-  if (reduced) { land(); }
-  else {
-    setTimeout(function () { if (navCount) navCount.classList.add("cs-top-live"); }, 3500);
-    setTimeout(function () {
-      if (!navCount || !traveler) { land(); return; }
-      var r = navCount.getBoundingClientRect();
-      traveler.style.left = (r.left + r.width / 2) + "px";
-      traveler.style.top = r.top + "px";
-      traveler.style.opacity = "1";
-      navCount.classList.remove("cs-top-live");
-      void traveler.offsetWidth;
-      traveler.classList.add("cs-falling");
-      traveler.style.top = (window.innerHeight - 24) + "px";
-      traveler.style.opacity = "0";
-    }, 6300);
-    setTimeout(land, 7400);
   }
 })();
 </script>
