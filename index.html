@@ -2315,6 +2315,7 @@ function excluded(el){
       if(/free/i.test(id+cl)) return true;
       if(/lang/i.test(id+cl) && /pill|toggle|switch/i.test(id+cl)) return true;
       if(el.classList && (el.classList.contains('cs-emo'))) return true;
+      if(el.namespaceURI && el.namespaceURI.indexOf('svg')>-1) return true;
       var tag=el.tagName; if(tag==='script'||tag==='STYLE') return true;
     }
     el=el.parentNode;
