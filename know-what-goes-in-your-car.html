@@ -196,5 +196,34 @@ var mt; var mo=new MutationObserver(function(){ clearTimeout(mt); mt=setTimeout(
 mo.observe(document.body,{childList:true,subtree:true,characterData:true});
 })();
 </script>
+
+<!-- cs-qr-popout: QR button (Qris ruling 2026-11-14) -->
+<style>
+.cs-qr-tab{position:fixed;right:12px;bottom:132px;z-index:90;background:#0d1b26;color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:10px 14px;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 4px 14px rgba(13,27,38,.35);font-family:"Barlow",system-ui,sans-serif;transition:opacity .6s ease,visibility .6s}
+.cs-qr-tab .lbl{font-size:12.5px;font-weight:700;letter-spacing:.1em}
+.cs-qr-tab img{width:17px;height:17px;border-radius:3px;background:#fff;padding:1.5px;box-sizing:border-box}
+.cs-qr-tab.gone{opacity:0;visibility:hidden;pointer-events:none}
+.cs-qr-zone{position:fixed;right:0;bottom:118px;width:110px;height:56px;z-index:89;background:transparent;border:0;padding:0;cursor:pointer}
+.cs-qr-veil{position:fixed;inset:0;z-index:210;background:rgba(8,12,15,.74);display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:18px}
+.cs-qr-veil.open{display:flex}
+.cs-qr-card{background:#fff;border-radius:16px;padding:18px;box-shadow:0 14px 44px rgba(0,0,0,.5);text-align:center}
+.cs-qr-card img{width:min(68vw,300px);height:auto;display:block}
+.cs-qr-name{color:#f5c95c;font:600 15px/1.35 "Barlow",system-ui,sans-serif;letter-spacing:.02em;text-align:center}
+</style>
+<button type="button" class="cs-qr-zone" id="csQrZone" aria-label="Show the QR button"></button>
+<button type="button" class="cs-qr-tab" id="csQrTab" aria-label="Show our QR code"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIAQAAAACFI5MzAAAA0UlEQVR42t2YQRaEIAxD++b+d84IJK2zmL3fqiC4yoN8WqtO6LpWs/sdn/oXT/5yiVixhGxF2qLWDFaPV0ceyDNwPTp69B498s6j67GKGj1o/wzfND7i8k0T3nsOrn+OFOn2wHlgvPlQPT2XB9Vn6Q3cWP/0LitlsNeLzOvJDJoIXL61Y+YW2D+NBKfXITd3fc4i6Sd94/onUEibTQjPD5ptwR0/f6soQuvp+jTg9iu9/kmKAPfPrT5V43pJo/8/CLs9gfdP6p/MvaM+jZeofPsCqxE1OW1UcWoAAAAASUVORK5CYII=" alt=""><span class="lbl">QR</span></button>
+<div class="cs-qr-veil" id="csQrVeil"><div class="cs-qr-card"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIAQAAAACFI5MzAAAA0UlEQVR42t2YQRaEIAxD++b+d84IJK2zmL3fqiC4yoN8WqtO6LpWs/sdn/oXT/5yiVixhGxF2qLWDFaPV0ceyDNwPTp69B498s6j67GKGj1o/wzfND7i8k0T3nsOrn+OFOn2wHlgvPlQPT2XB9Vn6Q3cWP/0LitlsNeLzOvJDJoIXL61Y+YW2D+NBKfXITd3fc4i6Sd94/onUEibTQjPD5ptwR0/f6soQuvp+jTg9iu9/kmKAPfPrT5V43pJo/8/CLs9gfdP6p/MvaM+jZeofPsCqxE1OW1UcWoAAAAASUVORK5CYII=" alt="QR code — scan to open Car Sparkle"></div><div class="cs-qr-name">🚗✨.ws = Car Sparkle dot Wind Shield</div></div>
+<script>
+(function(){
+  var tab=document.getElementById('csQrTab'),zone=document.getElementById('csQrZone'),veil=document.getElementById('csQrVeil'),timer=null;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function arm(ms){if(reduce)return;clearTimeout(timer);timer=setTimeout(function(){tab.classList.add('gone');},ms);}
+  function wake(){tab.classList.remove('gone');arm(3000);}
+  zone.addEventListener('click',function(){if(tab.classList.contains('gone'))wake();});
+  tab.addEventListener('click',function(){veil.classList.add('open');});
+  veil.addEventListener('click',function(){veil.classList.remove('open');wake();});
+  arm(2500);
+})();
+</script>
 </body>
 </html>
